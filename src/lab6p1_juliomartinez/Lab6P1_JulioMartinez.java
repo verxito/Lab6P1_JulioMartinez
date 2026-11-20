@@ -9,10 +9,10 @@ public class Lab6P1_JulioMartinez {
         while(op != 3){
             switch (op){
                 case 1:
-                    ejercicio1();
+                    Ejercicio1();
                     break;
                 case 2:
-                    
+                    Ejercicio2();
                     break;
                 default:
                     System.out.println("Ingrese otra opcion: ");
@@ -31,7 +31,7 @@ public class Lab6P1_JulioMartinez {
         return opcion;
     }
     
-    public static void ejercicio1(){
+    public static void Ejercicio1(){
         double total = 0;
         System.out.print("Ingrese n (1 a 169): ");
         int n = leer.nextInt();
@@ -57,6 +57,31 @@ public class Lab6P1_JulioMartinez {
         }
         System.out.println();
         System.out.println("Resultado de la sumatoria: "+ calcularSumatoria(n, x, r));
+    }
+    
+    public static void Ejercicio2(){
+        System.out.print("Ingrese el tamano del arreglo a generar: ");
+        int size = leer.nextInt();
+        while (size < 0){
+            System.out.print("Ingrese el tamano del arreglo a generar: ");
+            size = leer.nextInt();
+        }
+        System.out.print("Ingrese el limite inferior: ");
+        int infe = leer.nextInt();
+        while (infe < 0){
+            System.out.print("Ingrese el limite inferior: ");
+            infe = leer.nextInt();
+        }
+        System.out.print("Ingrese el limite superior: ");
+        int supe = leer.nextInt();
+        while (supe <= infe){
+            System.out.print("Ingrese el limite superior: ");
+            supe = leer.nextInt();
+        }
+        System.out.println("Arreglo generado: "+ );
+        System.out.println("No. divisores primos: "+ );
+        System.out.println("Primos encontrados: "+ );
+        System.out.println("Promedio de factores primos: "+ );
     }
     
     public static double factorial(int numero){
@@ -103,4 +128,34 @@ public class Lab6P1_JulioMartinez {
         return total;
     }
     
+    public static int [] genRandArray(int tam, int min, int max){
+        int [] arreglo = new int [tam];
+        for (int i = 1; i <= arreglo.length ; i++){
+            int num = min + r(max);
+        }
+    }
+    
+    public static int isPrime(int numero){
+        
+    }
+    
+    public static int countPrimeFactors(int numero){
+        
+    }
+    
+    public static int[] getTotalPrimeCount(int [] arreglo){
+        
+    }
+    
+    public static int[] filtrarPrimos(int [] arreglo){
+        
+    }
+    
+    public static double calcularPromedio(int [] arreglo){
+        
+    }
+    
+    public static void imprimirArreglo(int [] arreglo){
+        
+    }
 }
