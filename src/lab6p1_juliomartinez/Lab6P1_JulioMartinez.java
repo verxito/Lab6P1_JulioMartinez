@@ -78,10 +78,11 @@ public class Lab6P1_JulioMartinez {
             System.out.print("Ingrese el limite superior: ");
             supe = leer.nextInt();
         }
-        System.out.println("Arreglo generado: "+ );
-        System.out.println("No. divisores primos: "+ );
-        System.out.println("Primos encontrados: "+ );
-        System.out.println("Promedio de factores primos: "+ );
+        int [] maincito = genRandArray(size,infe,supe);
+        imprimirArreglo(maincito);
+        System.out.println("No. divisores primos: "+ countPrimeFactors());
+        System.out.println("Primos encontrados: "+ filtrarPrimos(maincito));
+        System.out.println("Promedio de factores primos: "+ calcularPromedio(maincito));
     }
     
     public static double factorial(int numero){
@@ -130,32 +131,75 @@ public class Lab6P1_JulioMartinez {
     
     public static int [] genRandArray(int tam, int min, int max){
         int [] arreglo = new int [tam];
-        for (int i = 1; i <= arreglo.length ; i++){
-            int num = min + r(max);
+        for (int i = 0; i < arreglo.length ; i++){
+            arreglo [i] = min + r.nextInt(max);
         }
+        return arreglo;
     }
     
     public static int isPrime(int numero){
-        
+        int primo = 0;
+        int cont = 0;
+        for (int i = 1; i <= numero; i++){
+            if (numero%i == 0){
+                cont ++;
+            }
+        }
+        if (cont == 2 ||  numero == 1){
+            primo = 1;
+        }
+        return primo;
     }
     
     public static int countPrimeFactors(int numero){
-        
+        int primo = 0;
+        for (int i = 1; i <= numero; i++ )
+            if (isPrime(i) == 1){
+                primo ++;
+        }
+        return primo;
     }
     
     public static int[] getTotalPrimeCount(int [] arreglo){
-        
+        int [] arreglo2 = new int[arreglo.length];
+        for (int i = 0; i < arreglo.length; i++){
+            int numero = arreglo[i];
+            int agrego = countPrimeFactors(numero);
+            arreglo2 [i] = agrego;
+        }
+        return arreglo2;
     }
     
     public static int[] filtrarPrimos(int [] arreglo){
-        
+        int sizee = 0;
+        for (int x = 0; x < arreglo.length; x++){
+            int num = arreglo[x];
+            sizee += isPrime(num);
+        } 
+        int [] arreglo2 = new int[sizee];
+        for (int i = 0; i < arreglo.length; i++){
+            int numero = arreglo[i];
+            int agrego = countPrimeFactors(numero);
+            arreglo2 [i] = agrego;
+        }
+        return arreglo2;
     }
     
     public static double calcularPromedio(int [] arreglo){
-        
+        double promedio = 0;
+        double suma = 0;
+        for (int i = 0; i < arreglo.length; i++){
+            suma += arreglo [i];
+        }
+        promedio = suma/arreglo.length;
+        return promedio;
     }
     
     public static void imprimirArreglo(int [] arreglo){
-        
+        System.out.print("Arreglo generado: ");
+        for (int i = 0; i < arreglo.length; i++){
+            int num = arreglo [i];
+            System.out.println("["+ num +"]");
+        }
     }
 }
