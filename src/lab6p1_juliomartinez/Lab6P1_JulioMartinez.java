@@ -23,10 +23,9 @@ public class Lab6P1_JulioMartinez {
     
     public static int menu(){
         System.out.println("--MENU--");
-        System.out.println("1. ");
-        System.out.println("1. ");
-        System.out.println("1. ");
-        System.out.println("4. Salir ");
+        System.out.println("1. Sumatoria de variables");
+        System.out.println("2. Cuantos primos tenés???");
+        System.out.println("3. Salir ");
         System.out.print("Ingrese lo que desea hacer: ");
         int opcion = leer.nextInt();
         return opcion;
@@ -52,8 +51,12 @@ public class Lab6P1_JulioMartinez {
             System.out.print("Ingrese r (0 a 5): ");
             r = leer.nextInt();
         }
-        
-        
+        System.out.println();
+        for (int i = 1; i<= n; i++){
+            System.out.println("Termino i="+i + " "+ calcularTermino(i, x, r));
+        }
+        System.out.println();
+        System.out.println("Resultado de la sumatoria: "+ calcularSumatoria(n, x, r));
     }
     
     public static double factorial(int numero){
@@ -85,8 +88,9 @@ public class Lab6P1_JulioMartinez {
         double der = 0;
         double izq = combinatoria(x, r);
         double total = 0;
+        double i2 = i+2;
         medio = potencia(i, r)/factorial(i+1);
-        der = 1/(i+2);
+        der = 1/i2;
         total = izq*medio*der;
         return total;
     }
@@ -96,6 +100,7 @@ public class Lab6P1_JulioMartinez {
         for (int i = 1; i <= n; i++){
             total += calcularTermino(i, x, r);
         }
+        return total;
     }
     
 }
