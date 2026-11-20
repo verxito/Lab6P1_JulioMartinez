@@ -80,8 +80,21 @@ public class Lab6P1_JulioMartinez {
         }
         int [] maincito = genRandArray(size,infe,supe);
         imprimirArreglo(maincito);
-        System.out.println("No. divisores primos: "+ countPrimeFactors());
-        System.out.println("Primos encontrados: "+ filtrarPrimos(maincito));
+        System.out.println();
+        System.out.print("No. divisores primos: ");
+        for (int y = 0; y < maincito.length; y++){
+            int liss [] = getTotalPrimeCount(maincito);
+            int num = liss [y];
+            System.out.print(num + " ");
+        }
+        System.out.println();
+        System.out.print("Primos encontrados: ");
+        for (int u = 0; u < filtrarPrimos(maincito).length; u++){
+            int liss [] = filtrarPrimos(maincito);
+            int num = liss [u];
+            System.out.print(num + " ");
+        }
+        System.out.println();
         System.out.println("Promedio de factores primos: "+ calcularPromedio(maincito));
     }
     
@@ -132,7 +145,7 @@ public class Lab6P1_JulioMartinez {
     public static int [] genRandArray(int tam, int min, int max){
         int [] arreglo = new int [tam];
         for (int i = 0; i < arreglo.length ; i++){
-            arreglo [i] = min + r.nextInt(max);
+            arreglo [i] = 1 + r.nextInt(min, max);
         }
         return arreglo;
     }
@@ -174,10 +187,21 @@ public class Lab6P1_JulioMartinez {
         int sizee = 0;
         for (int x = 0; x < arreglo.length; x++){
             int num = arreglo[x];
-            sizee += isPrime(num);
+            if (isPrime(num) == 1){
+               sizee ++; 
+            }
         } 
         int [] arreglo2 = new int[sizee];
-        for (int i = 0; i < arreglo.length; i++){
+        int pos = 0;
+        for (int x = 0; x < arreglo.length; x++){
+            int num = arreglo[x];
+            if (isPrime(num)== 1){
+                arreglo2 [pos] = num ;
+                pos ++;
+            }
+        }
+        
+        for (int i = 0; i < arreglo2.length; i++){
             int numero = arreglo[i];
             int agrego = countPrimeFactors(numero);
             arreglo2 [i] = agrego;
@@ -199,7 +223,7 @@ public class Lab6P1_JulioMartinez {
         System.out.print("Arreglo generado: ");
         for (int i = 0; i < arreglo.length; i++){
             int num = arreglo [i];
-            System.out.println("["+ num +"]");
+            System.out.print("["+ num +"]");
         }
     }
 }
